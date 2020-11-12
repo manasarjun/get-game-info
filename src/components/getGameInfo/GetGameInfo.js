@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import '../../App.css';
 
-import fetchData from '../../fetchData';
 import GameSchedule from "../gameSchedule/GameSchedule";
+import fetchData from '../../utils/fetchData'
 
 function GetGameInfo() {
   const gameType = useRef(null);
