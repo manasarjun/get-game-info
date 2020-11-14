@@ -1,19 +1,49 @@
 .App {
   text-align: center;
-  display: block;
+  display: grid;
+  
+  
 }
 
 .text-field {
   margin: 20px;
   padding: 10px;
   font-size: 18px;
+  grid-area: header;
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+
+.data_items {
+  margin: 5px;
+  padding:5px;
+  list-style-type: none;
+  background-color: lightgray;
+
+}
+.game_data{
+  padding-inline-start: 0px;
+
 }
 
+.start_list{
+
+  list-style-type: none;
+  padding-inline-start: 0px;
+
+}
+
+.start_data {
+  padding: 1px;
+  margin: 5px;
+  background-color: lightblue;
+
+}
+.game_list_item{
+  margin: 5px;
+  padding: 10px;
+  background-color: lightgray;
+}
 

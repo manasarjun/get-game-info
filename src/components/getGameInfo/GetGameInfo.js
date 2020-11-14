@@ -6,12 +6,11 @@ import fetchData from '../../utils/fetchData'
 
 function GetGameInfo() {
   const gameType = useRef(null);
-  const [results, setResults] = useState([]);
-  const [upcoming, setUpcoming] = useState([]);
+  const [closestGame, setClosestGame] = useState(null);
 
   const handleOnClick = (e) => {
     e.preventDefault();
-    const keyword = gameType.current.value;
+    const keyword = gameType.current.value.toUpperCase();
     fetchData(keyword)
       .then(res => {
         if (res.ok) {
@@ -23,18 +22,19 @@ function GetGameInfo() {
         }
       })
       .then(data => {
-        setResults(data.results)
-        setUpcoming(data.upcoming)
+        data.upcoming.length > 0 ? setClosestGame(data.upcoming[0]) : setClosestGame(data.results[0])
       }).catch(err => alert('Please enter a valid game type'))
     gameType.current.value = '';
   }
+
+  console.log(closestGame);
 
   return (
     <>
       <form onSubmit={handleOnClick}>
         <input className='text-field' ref={gameType} type='text' placeholder='enter game type' />
       </form>
-      <GameSchedule upcoming={upcoming} results={results} />
+      {closestGame && <GameSchedule game={closestGame} />}
     </>
   )
 }

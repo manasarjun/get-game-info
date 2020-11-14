@@ -1,39 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import fetchData from '../../utils/fetchData';
+import '../../App.css';
+import GameData from '../gameData/GameData'
 
-function GameSchedule({ upcoming, results }) {
+function GameSchedule({ game }) {
 
-  const handleShow = (id) => {
-    fetchData(id, 'id')
+  const [gameData, setGameData] = useState(null);
+
+  useEffect(() => {
+    fetchData(game.id, 'id')
       .then(res => res.json())
-      .then(data => console.log(data))
-  }
+      .then(data => setGameData(data))
+  }, [game.id]);
 
-
-
-  const showGames = (games, gameType) => {
-    return (
-      <>
-        {gameType === 'Upcoming' ? <h3> Upcoming </h3> : <h3> Results </h3>}
-        <ul>
-          {games && games.map(u => (<li onClick={() => handleShow(u.id)}><p>{u.id}</p>
-            <p>{u.startTime}</p>
-          </li>))}
-
-        </ul>
-      </>
-    )
-  }
-
+  console.log(gameData);
   const renderer = () => {
     return (<>
-      { upcoming && upcoming.length > 0 ? showGames(upcoming, 'Upcoming') : showGames(results, 'Results')}
+      { gameData && <GameData data={gameData} />}
     </>);
   }
 
   return renderer();
 
 }
+
 
 export default GameSchedule;
