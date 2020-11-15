@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import fetchData from '../../utils/fetchData';
 import '../../App.css';
-import GameData from '../gameData/GameData'
+import GameData from '../GameData/GameData'
 
 function GameSchedule({ game }) {
 
@@ -14,7 +15,6 @@ function GameSchedule({ game }) {
       .then(data => setGameData(data))
   }, [game.id]);
 
-  console.log(gameData);
   const renderer = () => {
     return (<>
       { gameData && <GameData data={gameData} />}
@@ -25,5 +25,10 @@ function GameSchedule({ game }) {
 
 }
 
+GameSchedule.prototype = {
+  game: PropTypes.shape({
+    id: PropTypes.number
+  })
+}
 
 export default GameSchedule;

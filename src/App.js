@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import GetGameInfo from './components/getGameInfo/GetGameInfo'
+import GetGameInfo from './components/GetGameInfo/GetGameInfo'
 
 
 function App() {
