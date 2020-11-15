@@ -7,7 +7,6 @@ function GameData({ data }) {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [hideIndex, setHideIndex] = useState(null);
 
   const handleStartInfo = (index) => (e) => {
     setIsExpanded(true);
@@ -65,10 +64,7 @@ GameData.propTypes = {
     name: PropTypes.string,
     startTime: PropTypes.string,
     starts: PropTypes.array
-
-  }
-
-  )
+  })
 }
 
 export default GameData;

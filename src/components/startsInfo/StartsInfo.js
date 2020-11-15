@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function StartsInfo({ starts }) {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [isCollapsable, setIsCollapsable] = useState(false);
-
 
   const handleCollapsable = () => {
     setIsCollapsable(false);
@@ -56,9 +55,7 @@ StartsInfo.prototype = {
     trainer: PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string,
-    }),
-
-
+    })
   })
 }
 

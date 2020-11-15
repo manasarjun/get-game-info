@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import fetchData from '../../utils/fetchData';
-import '../../App.css';
 import GameData from '../GameData/GameData'
+import '../../App.css';
 
 function GameSchedule({ game }) {
 
@@ -15,14 +15,11 @@ function GameSchedule({ game }) {
       .then(data => setGameData(data))
   }, [game.id]);
 
-  const renderer = () => {
-    return (<>
+  return (
+    <>
       { gameData && <GameData data={gameData} />}
-    </>);
-  }
-
-  return renderer();
-
+    </>
+  );
 }
 
 GameSchedule.prototype = {
