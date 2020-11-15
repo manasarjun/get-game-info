@@ -1,45 +1,61 @@
 .App {
   text-align: center;
-  display: grid;
-  
-  
+}
+
+p {
+  margin: 8px 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 .text-field {
   margin: 20px;
   padding: 10px;
   font-size: 18px;
-  grid-area: header;
+  min-width: 300px;
+  width: 50%;
 }
 
-.data_items {
+.data-items {
   margin: 5px;
   padding:5px;
+  text-align: left;
   list-style-type: none;
   background-color: lightgray;
-
 }
-.game_data{
+
+.game-data {
   padding-inline-start: 0px;
-
 }
 
-.start_list{
-
+.start-list {
   list-style-type: none;
   padding-inline-start: 0px;
-
 }
 
-.start_data {
+.start-data {
   padding: 1px;
   margin: 5px;
   background-color: lightblue;
-
 }
-.game_list_item{
+
+.game-list-item {
   margin: 5px;
   padding: 10px;
   background-color: lightgray;
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) { 
+
+    .text-field {
+      border-radius: 30px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+};

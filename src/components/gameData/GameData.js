@@ -26,27 +26,35 @@ function GameData({ data }) {
     return <>{date} <b>{time}</b></>;
   };
 
-  return (<>
-    <ul className='game_data'>
-      <h2>Races</h2>
-      {data && data.races.map(
-        (race, index) => (
-          <li key={index} className='data_items'>
-            <p>Race Number: {race.number}</p>
-            {race.name && <p>Race Name: {race.name}</p>}
-            <p>Race Start Time: {prettyPrint(race.startTime)}</p>
-            {
-              (currentIndex === index && isExpanded) ?
-                <>
-                  <button onClick={handleHideInfo(index)}>Hide starts Info</button>
-                  <StartsInfo starts={race.starts} />
-                </>
-                : <button onClick={handleStartInfo(index)}>Show starts Info</button>
-            }
-          </li>)
-      )}
-    </ul>
-  </>
+  return (
+    <div className="data-container">
+
+      <ul className='game-data'>
+        <h2>Races</h2>
+        {data && data.races.map(
+          (race, index) => (
+            <li key={index} className='data-items'>
+              <p>Race Number: {race.number}</p>
+              {race.name && <p>Race Name: {race.name}</p>}
+              <p>Race Start Time: {prettyPrint(race.startTime)}</p>
+              {
+                (currentIndex === index && isExpanded) ?
+                  <>
+                    <button onClick={handleHideInfo(index)}>
+                      Show Less
+                      </button>
+                    <StartsInfo starts={race.starts} />
+                  </>
+                  :
+                  <button onClick={handleStartInfo(index)}>
+                    Show More
+                    </button>
+              }
+            </li>)
+        )}
+      </ul>
+    </div >
+
   );
 
 }
