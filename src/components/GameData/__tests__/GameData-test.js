@@ -1,11 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-//import { shallow } from 'enzyme';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallowToJson } from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
 import GameData from '../GameData'
-Enzyme.configure({ adapter: new Adapter() });
 
 describe.only('<GameData />', () => {
 
@@ -25,12 +22,7 @@ describe.only('<GameData />', () => {
   }
 
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<GameData {...baseProps} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const wrapper = shallow(<GameData />);
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
-
-
-
 });

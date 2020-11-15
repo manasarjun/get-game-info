@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 import StartsInfo from '../StartsInfo';
 
 describe.only('<StartsInfo />', () => {
@@ -25,9 +25,7 @@ describe.only('<StartsInfo />', () => {
   }
 
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<StartsInfo {...baseProps} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const wrapper = shallow(<StartsInfo />);
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });

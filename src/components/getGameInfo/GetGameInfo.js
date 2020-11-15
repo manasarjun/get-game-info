@@ -9,7 +9,7 @@ function GetGameInfo() {
   const [displayGameType, setdisplayGameType] = useState(null);
   const handleError = (err) => {
     alert('Please enter a valid game type (Valid Game Types: V4, V64, V65, V75)')
-    console.log('in handler---->', err);
+    console.log(err);
   }
   const handleOnSubmit = (e) => {
     e.preventDefault();

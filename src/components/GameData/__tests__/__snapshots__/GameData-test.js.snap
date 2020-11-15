@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameData /> renders correctly 1`] = `
-<ul
-  className="game_data"
->
-  <h2>
-    Races
-  </h2>
-</ul>
+<Fragment>
+  <ul
+    className="game_data"
+  >
+    <h2>
+      Races
+    </h2>
+  </ul>
+</Fragment>
 `;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GetGameInfo /> Render Initial Form 1`] = `
+<Fragment>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="text-field"
+      placeholder="enter game type"
+      type="text"
+    />
+  </form>
+  <p>
+    Please enter a game type
+  </p>
+</Fragment>
+`;
