@@ -1,13 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameData /> renders correctly 1`] = `
-<Fragment>
+<div
+  className="data-container"
+>
   <ul
-    className="game_data"
+    className="game-data"
   >
     <h2>
       Races
     </h2>
+    <li
+      className="data-items"
+      key="0"
+    >
+      <p>
+        Race Number: 
+        8
+      </p>
+      <p>
+        Race Name: 
+        Breddlopp - Spårtrappa
+      </p>
+      <p>
+        Race Start Time: 
+        2020-11-14
+         
+        <b>
+          21:02:00
+        </b>
+      </p>
+      <button
+        onClick={[Function]}
+      >
+        Show More
+      </button>
+    </li>
   </ul>
-</Fragment>
+</div>
 `;

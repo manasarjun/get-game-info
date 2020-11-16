@@ -15,7 +15,7 @@ function StartsInfo({ starts }) {
   }
 
   return (
-    <ul className='start-list'>{starts.map(
+    <ul className='start-list'>{starts && starts.map(
       (s, index) => (
         <li className='start-data' key={index}>
           <p>Start Number: {s.number}</p>

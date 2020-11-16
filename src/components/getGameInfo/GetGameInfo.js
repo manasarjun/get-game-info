@@ -40,7 +40,7 @@ function GetGameInfo() {
           ref={gameType}
         />
       </form>
-      {displayGameType ? <h1>Game Type: {displayGameType}</h1>
+      {displayGameType ? <h1>Game: {displayGameType}</h1>
         : <p>Please enter a game type</p>
       }
       {closestGame && <GameSchedule game={closestGame} />}

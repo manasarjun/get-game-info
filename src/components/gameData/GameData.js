@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
-import StartsInfo from '../StartsInfo/StartsInfo'
+import StartsInfo from '../StartsInfo/StartsInfo';
 
 function GameData({ data }) {
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isCollapsable, setIsCollapsable] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const handleStartInfo = (index) => (e) => {
-    setIsExpanded(true);
+  const handleShow = (index) => () => {
+    setIsCollapsable(true);
     setCurrentIndex(index);
   }
 
-  const handleHideInfo = (i) => () => {
-    setCurrentIndex(null)
-    setIsExpanded(false)
+  const handleCollapsable = () => () => {
+    setIsCollapsable(false)
   }
 
   const prettyPrint = (string) => {
@@ -37,15 +36,15 @@ function GameData({ data }) {
               {race.name && <p>Race Name: {race.name}</p>}
               <p>Race Start Time: {prettyPrint(race.startTime)}</p>
               {
-                (currentIndex === index && isExpanded) ?
+                (currentIndex === index && isCollapsable) ?
                   <>
-                    <button onClick={handleHideInfo(index)}>
+                    <button onClick={handleCollapsable(setIsCollapsable)}>
                       Show Less
                       </button>
                     <StartsInfo starts={race.starts} />
                   </>
                   :
-                  <button onClick={handleStartInfo(index)}>
+                  <button onClick={handleShow(index, setCurrentIndex, setIsCollapsable)}>
                     Show More
                     </button>
               }
@@ -53,9 +52,7 @@ function GameData({ data }) {
         )}
       </ul>
     </div >
-
   );
-
 }
 
 GameData.propTypes = {

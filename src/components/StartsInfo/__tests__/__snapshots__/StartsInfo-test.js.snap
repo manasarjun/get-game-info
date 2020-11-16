@@ -2,6 +2,33 @@
 
 exports[`<StartsInfo /> renders correctly 1`] = `
 <ul
-  className="start_list"
-/>
+  className="start-list"
+>
+  <li
+    className="start-data"
+    key="0"
+  >
+    <p>
+      Start Number: 
+      1
+    </p>
+    <p>
+      HorseName: 
+      Deweykidumnhowe
+    </p>
+    <p>
+      Driver Name: 
+      JensNilsson
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons"
+      >
+        keyboard_arrow_down
+      </i>
+    </button>
+  </li>
+</ul>
 `;

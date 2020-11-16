@@ -4,7 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import StartsInfo from '../StartsInfo';
 
 describe.only('<StartsInfo />', () => {
-  const baseProps = {
+  const baseProps = [{
     number: 1,
     horse: {
       "name": "Deweykidumnhowe",
@@ -22,10 +22,10 @@ describe.only('<StartsInfo />', () => {
       "firstName": "Jens",
       "lastName": "Nilsson",
     }
-  }
+  }];
 
   it('renders correctly', () => {
-    const wrapper = shallow(<StartsInfo />);
+    const wrapper = shallow(<StartsInfo starts={baseProps} />);
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });
