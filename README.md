@@ -4,7 +4,6 @@ This is a small react application. It allows the user to types in horse betting 
 
 ## For Developers
 - `git clone https://github.com/manasarjun/get-game-info.git`
-- `
 - `npm i`
 - `npm start (To run the app)`
 - `npm t (To run the tests)`
