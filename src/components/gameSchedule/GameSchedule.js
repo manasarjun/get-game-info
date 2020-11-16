@@ -5,8 +5,9 @@ import fetchData from '../../utils/fetchData';
 import GameData from '../GameData/GameData'
 import '../../App.css';
 
-function GameSchedule({ game }) {
+function GameSchedule(props) {
 
+  const { game, upComingOrResults } = props.closestGame;
   const [gameData, setGameData] = useState(null);
 
   useEffect(() => {
@@ -17,6 +18,8 @@ function GameSchedule({ game }) {
 
   return (
     <>
+      <h3>{`Closest ${upComingOrResults} Game`}</h3>
+
       { gameData && <GameData data={gameData} />}
     </>
   );

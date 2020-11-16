@@ -5,7 +5,7 @@ import '../../App.css';
 
 function GetGameInfo() {
   const gameType = useRef(null);
-  const [closestGame, setClosestGame] = useState();
+  const [closestGame, setClosestGame] = useState({});
   const [displayGameType, setdisplayGameType] = useState(null);
 
   const handleError = (err) => {
@@ -25,7 +25,7 @@ function GetGameInfo() {
       })
       .then(data => {
         setdisplayGameType(data.betType);
-        data.upcoming ? setClosestGame(data.upcoming[0]) : setClosestGame(data.results[0])
+        data.upcoming && data.upcoming.length > 0 ? setClosestGame({ game: data.upcoming[0], upComingOrResults: 'Upcoming' }) : setClosestGame({ game: data.results[0], upComingOrResults: 'Results' })
       }).catch(handleError)
     gameType.current.value = '';
   }
@@ -40,10 +40,10 @@ function GetGameInfo() {
           ref={gameType}
         />
       </form>
-      {displayGameType ? <h1>Game: {displayGameType}</h1>
+      {displayGameType ? <h2>Game: {displayGameType}</h2>
         : <p>Please enter a game type</p>
       }
-      {closestGame && <GameSchedule game={closestGame} />}
+      {closestGame.game && <GameSchedule closestGame={closestGame} />}
     </>
   )
 }

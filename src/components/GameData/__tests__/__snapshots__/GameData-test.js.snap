@@ -7,9 +7,9 @@ exports[`<GameData /> renders correctly 1`] = `
   <ul
     className="game-data"
   >
-    <h2>
+    <h3>
       Races
-    </h2>
+    </h3>
     <li
       className="data-items"
       key="0"
@@ -33,7 +33,7 @@ exports[`<GameData /> renders correctly 1`] = `
       <button
         onClick={[Function]}
       >
-        Show More
+        Show StartsInfo
       </button>
     </li>
   </ul>

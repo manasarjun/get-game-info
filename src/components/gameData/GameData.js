@@ -28,7 +28,7 @@ function GameData({ data }) {
     <div className="data-container">
 
       <ul className='game-data'>
-        <h2>Races</h2>
+        <h3>Races</h3>
         {data && data.races.map(
           (race, index) => (
             <li key={index} className='data-items'>
@@ -39,13 +39,13 @@ function GameData({ data }) {
                 (currentIndex === index && isCollapsable) ?
                   <>
                     <button onClick={handleCollapsable(setIsCollapsable)}>
-                      Show Less
+                      Hide StartsInfo
                       </button>
                     <StartsInfo starts={race.starts} />
                   </>
                   :
                   <button onClick={handleShow(index, setCurrentIndex, setIsCollapsable)}>
-                    Show More
+                    Show StartsInfo
                     </button>
               }
             </li>)
